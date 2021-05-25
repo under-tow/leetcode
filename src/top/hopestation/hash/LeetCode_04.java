@@ -1,11 +1,11 @@
-package top.hopestation;
+package top.hopestation.hash;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LeetCode04 {
+public class LeetCode_04 {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
         int len2 = nums2.length;
@@ -64,15 +64,13 @@ public class LeetCode04 {
                 median1 = Math.max(nums_im1, nums_jm1);
                 median2 = Math.min(nums_i, nums_j);
                 left = i + 1;
-            }
-            else {
+            } else {
                 right = i - 1;
             }
         }
 
         return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
     }
-
 
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package top.hopestation.LeetCode;
+package top.hopestation.hash;
 
 /**
  * Definition for singly-linked list.
@@ -29,7 +29,7 @@ class ListNode {
 }
 
 /**
- *  链表 两数相加，有点复杂
+ * 链表 两数相加，有点复杂
  */
 class LeetCode02 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -66,6 +66,6 @@ class LeetCode02 {
         ListNode node4 = new ListNode(3, null);
         ListNode node5 = new ListNode(4, node4);
         ListNode node6 = new ListNode(2, node5);
-        addTwoNumbers(node6,node3);
+        addTwoNumbers(node6, node3);
     }
 }
