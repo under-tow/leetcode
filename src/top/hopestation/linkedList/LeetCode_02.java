@@ -1,4 +1,4 @@
-package top.hopestation.hash;
+package top.hopestation.linkedList;
 
 /**
  * Definition for singly-linked list.
