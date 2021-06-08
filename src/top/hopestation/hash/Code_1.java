@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 两数之和
  */
-public class Code_01 {
+public class Code_1 {
     //暴力循环法
     public static int[] twoSum1(int[] nums, int target) {
         int len = nums.length;

@@ -1,7 +1,8 @@
 package top.hopestation.linkedList;
 
-import java.util.ArrayList;
-import java.util.List;
+import top.hopestation.common.ListNode;
+import top.hopestation.common.Tool;
+
 
 /**
  * 19. 删除链表的倒数第 N 个结点
@@ -26,17 +27,9 @@ public class Code_19 {
 //        ListNode head = removeNthFromEnd_Main(node0, 5);
         ListNode head = removeNthFromEnd_Office02(node0, 5);
 //        ListNode head = removeNthFromEnd_Office01(node0, 5);
-        print(head);
+        Tool.printNodes(head);
 
     }
-
-   public static class ListNode {
-       int val;
-       ListNode next;
-       ListNode() {}
-       ListNode(int val) { this.val = val; }
-       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-   }
 
 
     /**
@@ -74,14 +67,7 @@ public class Code_19 {
         return headBefore.next;
     }
 
-    public static void print(ListNode head){
-        List arr = new ArrayList<>();
-        while (head!=null){
-            arr.add(head.val);
-            head = head.next ;
-        }
-        System.out.println("arr = " + arr);
-    }
+
 
     /**
      * 官方解 - 暴力破解法

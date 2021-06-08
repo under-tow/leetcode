@@ -1,37 +1,12 @@
 package top.hopestation.linkedList;
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
+import top.hopestation.common.ListNode;
 
 /**
  * 链表 两数相加，有点复杂
  */
-class LeetCode02 {
+class Code_2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
         int carry = 0;
