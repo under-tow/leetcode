@@ -9,7 +9,7 @@ import java.util.*;
  * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
  * Created by HopeStation on 2021/5/24
  */
-public class LeetCode_387 {
+public class Code_387 {
     public static void main(String[] args) {
         int firstIdx_mine = firstUniqChar_Mine("aabb");
         int firstIdx_office = firstUniqChar_Office("aabb");

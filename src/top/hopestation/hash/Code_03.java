@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * 3.无重复字符的最长子串的长度
  */
-public class LeetCode_03 {
+public class Code_03 {
     public static int lengthOfLongestSubstring(String s) {
         char[] chars = s.toCharArray();
         HashMap hashMap = new HashMap();

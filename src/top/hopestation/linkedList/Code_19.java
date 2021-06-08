@@ -10,7 +10,7 @@ import java.util.List;
  * Created by HopeStation on 2021/5/26
  */
 
-public class LeetCode_19 {
+public class Code_19 {
 
 
     public static void main(String[] args) {
@@ -23,7 +23,9 @@ public class LeetCode_19 {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        ListNode head = removeNthFromEnd_Main(node0, 5);
+//        ListNode head = removeNthFromEnd_Main(node0, 5);
+        ListNode head = removeNthFromEnd_Office02(node0, 5);
+//        ListNode head = removeNthFromEnd_Office01(node0, 5);
         print(head);
 
     }
@@ -88,7 +90,7 @@ public class LeetCode_19 {
      * @param n
      * @return
      */
-    public ListNode removeNthFromEnd_Office01(ListNode head, int n) {
+    public static ListNode removeNthFromEnd_Office01(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         int length = getLength(head);
         ListNode cur = dummy;
@@ -100,7 +102,7 @@ public class LeetCode_19 {
         return ans;
     }
 
-    public int getLength(ListNode head) {
+    public static int getLength(ListNode head) {
         int length = 0;
         while (head != null) {
             ++length;
@@ -115,7 +117,7 @@ public class LeetCode_19 {
      * @param n
      * @return
      */
-    public ListNode removeNthFromEnd_Office02(ListNode head, int n) {
+    public static ListNode removeNthFromEnd_Office02(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         ListNode first = head;
         ListNode second = dummy;
