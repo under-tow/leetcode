@@ -1,6 +1,9 @@
 package top.hopestation.common;
 
 
+/**
+ * @author HopeStation
+ */
 public class ListNode {
     public  int val;
     public ListNode next;

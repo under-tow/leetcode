@@ -4,6 +4,9 @@ package top.hopestation.common;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author HopeStation
+ */
 public class Tool {
     public static void printNodes(ListNode head){
         List arr = new ArrayList<>();
