@@ -1,4 +1,4 @@
-package top.hopestation.dynamicPlan;
+package top.hopestation.fastSlowPointer;
 
 import top.hopestation.common.ListNode;
 
