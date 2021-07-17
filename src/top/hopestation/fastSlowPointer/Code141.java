@@ -16,7 +16,7 @@ import java.util.HashSet;
  *
  *  Created by HopeStation on 2021/5/24
  */
-public class Code_141 {
+public class Code141 {
 
     public static void main(String[] args) {
 

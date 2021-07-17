@@ -11,7 +11,7 @@ import top.hopestation.common.Tool;
  * Created by HopeStation on 2021/5/26
  */
 
-public class Code_19 {
+public class Code19 {
 
 
     public static void main(String[] args) {

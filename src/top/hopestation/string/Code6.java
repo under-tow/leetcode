@@ -16,7 +16,7 @@ import java.util.List;
  * 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如："PAHNAPLSIIGYIR"。
  *
  */
-public class Code_6 {
+public class Code6 {
 
     public static void main(String[] args) {
 

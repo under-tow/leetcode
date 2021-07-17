@@ -6,7 +6,7 @@ import top.hopestation.common.ListNode;
 /**
  * 链表 两数相加，有点复杂
  */
-class Code_2 {
+class Code2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
         int carry = 0;

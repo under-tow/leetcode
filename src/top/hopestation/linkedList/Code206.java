@@ -13,7 +13,7 @@ import java.util.List;
  * Created by HopeStation on 2021/6/8
  */
 
-public class Code_206 {
+public class Code206 {
 
 
     /**

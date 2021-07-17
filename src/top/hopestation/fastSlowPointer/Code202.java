@@ -15,7 +15,7 @@ package top.hopestation.fastSlowPointer;
  *
  * Created by HopeStation on 2021/6/18
  */
-public class Code_202 {
+public class Code202 {
 
     public static void main(String[] args) {
         System.out.println("isHappy = " + isHappy_Office(29));
