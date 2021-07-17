@@ -1,6 +1,9 @@
 package top.hopestation.string;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *  Z 字形变换
  *  将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
@@ -18,8 +21,10 @@ public class Code_6 {
     public static void main(String[] args) {
 
         String str = "PAYPALISHIRING";
+        String longStr = "hjouvsuyoypayulyeimuotehzriicfskpggkbbipzzrzucxamludfykgruowzgiooobppleqlwphapjnadqhdcnvwdtxjbmyppphauxnspusgdhiixqmbfjxjcvudjsuyibyebmwsiqyoygyxymzevypzvjegebeocfuftsxdixtigsieehkchzdflilrjqfnxztqrsvbspkyhsenbppkqtpddbuotbbqcwivrfxjujjddntgeiqvdgaijvwcyaubwewpjvygehljxepbpiwuqzdzubdubzvafspqpqwuzifwovyddwyvvburczmgyjgfdxvtnunneslsplwuiupfxlzbknhkwppanltcfirjcddsozoyvegurfwcsfmoxeqmrjowrghwlkobmeahkgccnaehhsveymqpxhlrnunyfdzrhbasjeuygafoubutpnimuwfjqsjxvkqdorxxvrwctdsneogvbpkxlpgdirbfcriqifpgynkrrefx";
         int rows = 3;
         System.out.println("convert_Mine(str,rows) = " + convert_Mine(str, rows));
+        System.out.println("convert_Mine2(str,rows) = " + convert_Mine2(str, rows));
     }
 
     /**
@@ -66,6 +71,90 @@ public class Code_6 {
         printIntMap(map);
         return getZ(map);
     }
+
+
+
+    /**
+     * 我的解
+     *  参考了官网的接替思路。再来自己写一遍
+     *  思路是这样的：
+     *      在我的解法一基础上，将二维数组变为了List<String>
+     *      原来的二维数组形成后也需要再次遍历每行的字符然后拼接起来，还有空位的情况。
+     *      而这种方式在遍历的时候确定每行字符的顺序后就直接形成的字符串，省去一步，简洁了一些
+     * @param s
+     * @param numRows
+     * @return
+     */
+    private static String convert_Mine2(String s, int numRows){
+
+        //如果行数为1，则字符串不会变化
+        if(numRows == 1){
+            return s;
+        }
+        //循环行数：如果输入的行数大于字符串的长度，则后面多余的遍历对于结果没有影响。 min(字符串的最大长度，输入的行数)。
+        if(numRows>=s.length()){
+            return s;
+        }
+        //初始化每行字符传为空
+        List<StringBuilder> rowList = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            rowList.add(new StringBuilder());
+        }
+        //整理每行的字符串
+        int curRow = 0;
+        boolean isGoDown = false;
+
+        for(char c : s.toCharArray()){
+            if(curRow == 0 || curRow == numRows-1){
+                isGoDown = !isGoDown;
+            }
+            rowList.get(isGoDown?curRow++:curRow--).append(c);
+        }
+
+        //拼接每行的结果 返回
+        StringBuilder res = new StringBuilder();
+        for(StringBuilder b :rowList) {
+            res.append(b);
+        }
+
+        return res.toString();
+    }
+
+    /**
+     * 官方解法
+     * @param s
+     * @param numRows
+     * @return
+     */
+    public String convert_Office(String s, int numRows) {
+
+        if (numRows == 1) {
+            return s;
+        }
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.min(numRows, s.length()); i++) {
+            rows.add(new StringBuilder());
+        }
+
+        int curRow = 0;
+        boolean goingDown = false;
+
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            if (curRow == 0 || curRow == numRows - 1) {
+                goingDown = !goingDown;
+            }
+            curRow += goingDown ? 1 : -1;
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (StringBuilder row : rows) {
+            ret.append(row);
+        }
+        return ret.toString();
+    }
+
 
     /**
      * 获取字符地图中的Z型结果集
