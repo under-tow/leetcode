@@ -1,7 +1,6 @@
 package top.hopestation.tree;
 
 
-import org.omg.PortableInterceptor.INACTIVE;
 import top.hopestation.common.TreeNode;
 
 import java.util.ArrayList;

@@ -20,13 +20,39 @@ public class Code141 {
 
     public static void main(String[] args) {
 
-        HashSet<ListNode> seen = new HashSet<>();
-        ListNode listNode = new ListNode(1);
-        System.out.println("seen.add(new ListNode(1)) = " + seen.add(listNode));
-        System.out.println("seen.add(new ListNode(2)) = " + seen.add(new ListNode(2)));
-        System.out.println("seen.add(new ListNode(1)) = " + seen.add(listNode));
-        System.out.println( null == null);
+//        HashSet<ListNode> seen = new HashSet<>();
+//        ListNode listNode = new ListNode(1);
+//        System.out.println("seen.add(new ListNode(1)) = " + seen.add(listNode));
+//        System.out.println("seen.add(new ListNode(2)) = " + seen.add(new ListNode(2)));
+//        System.out.println("seen.add(new ListNode(1)) = " + seen.add(listNode));
+//        System.out.println( );
+
+        ListNode listNode1 = new ListNode(3);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(0);
+        ListNode listNode4 = new ListNode(4);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode2;
+
+        System.out.println("hasCycle_Ans1(listNode1) = " + hasCycle_Ans1(listNode1));
+        System.out.println("hasCycle_Ans2(listNode1) = " + hasCycle_Ans2(listNode1));
+        System.out.println("hasCycle_Ans3(listNode1) = " + hasCycle_Ans3(listNode1));
     }
+
+    private static boolean hasCycle_Ans3(ListNode head) {
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * 哈希表法
@@ -35,7 +61,7 @@ public class Code141 {
      * @param head
      * @return
      */
-    public boolean hasCycle_Ans1(ListNode head) {
+    public static boolean hasCycle_Ans1(ListNode head) {
 
         HashSet<ListNode> seen = new HashSet<>();
         while (head!=null){
@@ -54,7 +80,7 @@ public class Code141 {
      * @param head
      * @return
      */
-    public boolean hasCycle_Ans2(ListNode head) {
+    public static boolean hasCycle_Ans2(ListNode head) {
 
 
         if(head==null){
@@ -65,11 +91,11 @@ public class Code141 {
         ListNode p2 = head;
 
         while (p1.next!=null && p2.next!=null && p2.next.next!=null ){
-           p1 = p1.next;
-           p2 = p2.next.next;
-           if(p1 == p2){
-               return true;
-           }
+            p1 = p1.next;
+            p2 = p2.next.next;
+            if(p1 == p2){
+                return true;
+            }
         }
 
         return false;
