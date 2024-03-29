@@ -7,7 +7,7 @@ package top.hopestation.classic;
 public class horseInChess {
 
     //    private static final int[][] move = {{-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}};
-    private static final int[][] move = {
+    private static final int[][] HORSE_OFFSET = {
             {1, 2},
             {1, -2},
             {-1, 2},
@@ -17,27 +17,27 @@ public class horseInChess {
             {-2, 1},
             {-2, -1}
     };
-    private static final int[][] chess = new int[8][8];
+    private static final int[][] CHESS = new int[8][8];
 
     public static void main(String[] args) {
         int x = 7, y = 7;
-        chess[x][y] = 1;
-        step(x, y, 1);
+        CHESS[x][y] = 1;
+        move(x, y, 1);
         print();
     }
 
 
     public static void print() {
         System.out.println("--------------------------");
-        for (int[] its : chess) {
-            for (int j = 0; j < chess[0].length; j++) {
+        for (int[] its : CHESS) {
+            for (int j = 0; j < CHESS[0].length; j++) {
                 System.out.print(its[j] + "  ");
             }
             System.out.println();
         }
     }
 
-    public static boolean step(int x, int y, int step) {
+    public static boolean move(int x, int y, int step) {
 
         if (step == 64) {
             return true;
@@ -45,15 +45,15 @@ public class horseInChess {
 //        print();
         // 落子
         for (int i = 0; i < 8; i++) {
-            int xt = x + move[i][0];
-            int yt = y + move[i][1];
+            int xt = x + HORSE_OFFSET[i][0];
+            int yt = y + HORSE_OFFSET[i][1];
             if (isAvailable(xt, yt)) {
-                chess[xt][yt] = step + 1;
-                if (step(xt, yt, step + 1)) {
+                CHESS[xt][yt] = step + 1;
+                if (move(xt, yt, step + 1)) {
                     print();
                     return true;
                 } else {
-                    chess[xt][yt] = 0;
+                    CHESS[xt][yt] = 0;
                 }
             }
         }
@@ -69,7 +69,7 @@ public class horseInChess {
     }
 
     public static boolean iUnVisit(int x, int y) {
-        return chess[x][y] == 0;
+        return CHESS[x][y] == 0;
     }
 
 }
