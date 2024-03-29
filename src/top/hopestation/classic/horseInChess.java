@@ -6,6 +6,7 @@ package top.hopestation.classic;
  */
 public class horseInChess {
 
+    //    private static final int[][] move = {{-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}};
     private static final int[][] move = {
             {1, 2},
             {1, -2},
@@ -17,58 +18,58 @@ public class horseInChess {
             {-2, -1}
     };
     private static final int[][] chess = new int[8][8];
-    private static final boolean[][] visit = new boolean[8][8];
-    private static boolean find = false;
 
     public static void main(String[] args) {
-        step( 0, 0, 1);
+        int x = 7, y = 7;
+        chess[x][y] = 1;
+        step(x, y, 1);
+        print();
     }
 
 
     public static void print() {
+        System.out.println("--------------------------");
         for (int[] its : chess) {
             for (int j = 0; j < chess[0].length; j++) {
                 System.out.print(its[j] + "  ");
             }
             System.out.println();
         }
-        System.out.println("--------------------------");
     }
 
-    public static void step( int x, int y, int step) {
+    public static boolean step(int x, int y, int step) {
 
-
-        if ( find || step == 64  ) {
-            find = true;
-            return;
+        if (step == 64) {
+            return true;
         }
-        print();
-
-        visit[x][y] = true;
+//        print();
         // 落子
-        chess[x][y] = step;
         for (int i = 0; i < 8; i++) {
             int xt = x + move[i][0];
             int yt = y + move[i][1];
-            if (available(xt, yt)) {
-                step( xt, yt, step + 1);
+            if (isAvailable(xt, yt)) {
+                chess[xt][yt] = step + 1;
+                if (step(xt, yt, step + 1)) {
+                    print();
+                    return true;
+                } else {
+                    chess[xt][yt] = 0;
+                }
             }
         }
-        // 落子
-        chess[x][y] = 0;
-        visit[x][y] = false;
+        return false;
     }
 
-    public static boolean available(int x, int y) {
-        return inChess(x, y) && isVisit(x, y);
+    public static boolean isAvailable(int x, int y) {
+        return inChess(x, y) && iUnVisit(x, y);
     }
 
     public static boolean inChess(int x, int y) {
         return 0 <= x && x < 8 && 0 <= y && y < 8;
     }
 
-    public static boolean isVisit(int x, int y) {
-        return !visit[x][y];
+    public static boolean iUnVisit(int x, int y) {
+        return chess[x][y] == 0;
     }
 
 }
